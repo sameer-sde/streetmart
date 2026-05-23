@@ -13,7 +13,9 @@
 [![Offline](https://img.shields.io/badge/Offline-Supported-blue?style=flat-square)](https://github.com)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[🚀 Live Demo](#) · [📱 Install as App](#how-to-install-pwa) · [🐛 Report Bug](issues) · [✨ Request Feature](issues)
+### 🌐 [Live Demo → streetmart-phi.vercel.app](https://streetmart-phi.vercel.app)
+
+[📱 Install as App](#how-to-install-pwa) · [🐛 Report Bug](../../issues) · [✨ Request Feature](../../issues)
 
 </div>
 
