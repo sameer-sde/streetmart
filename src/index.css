@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #1a7a4a;
+  --green2: #25a463;
+  --green3: #e8f5ee;
+  --orange: #f07d2a;
+  --orange2: #fff3e8;
+  --yellow: #f5c518;
+  --red: #e53935;
+  --red2: #fdecea;
+  --bg: #f7f9f5;
+  --white: #ffffff;
+  --text: #1a2e1a;
+  --text2: #4a6741;
+  --text3: #8aaa84;
+  --border: #d4e8d0;
+  --shadow: 0 2px 12px rgba(26,122,74,0.08);
+  --shadow2: 0 4px 20px rgba(26,122,74,0.12);
+  --radius: 16px;
+  --radius2: 24px;
+}
+
+body {
+  background: var(--bg);
+  font-family: 'Poppins', 'Noto Sans', sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  body { max-width: 100%; }
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+input, button, select, textarea { font-family: 'Poppins', sans-serif; }
+input:focus, textarea:focus { outline: none; }
+button { cursor: pointer; border: none; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeIn       { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeInLeft   { from{opacity:0;transform:translateX(-16px)} to{opacity:1;transform:translateX(0)} }
+@keyframes fadeInRight  { from{opacity:0;transform:translateX(16px)} to{opacity:1;transform:translateX(0)} }
+@keyframes slideUp      { from{transform:translateY(100%);opacity:0} to{transform:translateY(0);opacity:1} }
+@keyframes slideDown    { from{transform:translateY(-20px);opacity:0} to{transform:translateY(0);opacity:1} }
+@keyframes scaleIn      { from{transform:scale(0.92);opacity:0} to{transform:scale(1);opacity:1} }
+@keyframes pulse        { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
+@keyframes spin         { to{transform:rotate(360deg)} }
+@keyframes shimmer      { 0%{background-position:-400px 0} 100%{background-position:400px 0} }
+@keyframes bounceIn     { 0%{transform:scale(0.7);opacity:0} 60%{transform:scale(1.05)} 100%{transform:scale(1);opacity:1} }
+@keyframes floatUp      { 0%{transform:translateY(0)} 50%{transform:translateY(-6px)} 100%{transform:translateY(0)} }
+@keyframes navIn        { from{transform:translateY(80px)} to{transform:translateY(0)} }
+@keyframes badgePop     { 0%{transform:scale(0)} 70%{transform:scale(1.2)} 100%{transform:scale(1)} }
+
+/* ── UTILITY CLASSES ── */
+.fade-in        { animation: fadeIn 0.35s cubic-bezier(.2,.8,.3,1) both; }
+.fade-in-left   { animation: fadeInLeft 0.35s cubic-bezier(.2,.8,.3,1) both; }
+.fade-in-right  { animation: fadeInRight 0.35s cubic-bezier(.2,.8,.3,1) both; }
+.slide-up       { animation: slideUp 0.4s cubic-bezier(.2,.8,.3,1) both; }
+.slide-down     { animation: slideDown 0.3s cubic-bezier(.2,.8,.3,1) both; }
+.scale-in       { animation: scaleIn 0.3s cubic-bezier(.2,.8,.3,1) both; }
+.bounce-in      { animation: bounceIn 0.5s cubic-bezier(.2,.8,.3,1) both; }
+.float          { animation: floatUp 3s ease-in-out infinite; }
+.nav-in         { animation: navIn 0.4s cubic-bezier(.2,.8,.3,1) both; }
+
+/* Staggered children */
+.stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger > *:nth-child(2) { animation-delay: 0.10s; }
+.stagger > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger > *:nth-child(4) { animation-delay: 0.20s; }
+.stagger > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger > *:nth-child(6) { animation-delay: 0.30s; }
+
+/* ── SKELETON LOADER ── */
+.skeleton {
+  background: linear-gradient(90deg, #e8ede8 25%, #d4e0d4 50%, #e8ede8 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: 10px;
+}
+.skeleton-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* ── BUTTON PRESS ── */
+button:active { transform: scale(0.96); transition: transform 0.1s; }
+
+/* ── CARD HOVER (desktop) ── */
+@media (hover: hover) {
+  .hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(26,122,74,0.14);
+    transition: all 0.25s cubic-bezier(.2,.8,.3,1);
+  }
+}
+
+/* ── INSTALL BANNER ── */
+.install-banner {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 28px);
+  max-width: 492px;
+  background: linear-gradient(135deg, #1a7a4a, #25a463);
+  color: #fff;
+  border-radius: 18px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 150;
+  box-shadow: 0 8px 32px rgba(26,122,74,0.35);
+  animation: slideUp 0.4s cubic-bezier(.2,.8,.3,1) both;
+}
+
+/* ── ONBOARDING ── */
+.onboard-page {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* ── PULL TO REFRESH ── */
+.ptr-indicator {
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+  color: #8aaa84;
+  animation: fadeIn 0.2s ease;
+}
+
+/* ── PAGE TRANSITION ── */
+.page-enter { animation: fadeIn 0.3s cubic-bezier(.2,.8,.3,1) both; }
+.page-exit  { animation: fadeIn 0.2s cubic-bezier(.2,.8,.3,1) reverse both; }
+
+/* ── TOAST NOTIFICATION ── */
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a2e1a;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 999;
+  white-space: nowrap;
+  animation: slideDown 0.3s cubic-bezier(.2,.8,.3,1) both;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.toast.success { background: #25a463; }
+.toast.error   { background: #e53935; }
+
+/* ── TICKER SCROLL ── */
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-scroll {
+  animation: tickerScroll linear infinite;
+}
